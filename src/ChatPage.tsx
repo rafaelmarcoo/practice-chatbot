@@ -16,14 +16,12 @@ const ChatPage = () => {
    const handleSendMessage = async () => {
       if (newMessage.trim() === '' || isLoading) return;
       
-      // Add user message
       const userMessage: Message = {
          id: Date.now(),
          text: newMessage,
          sender: 'user',
       };
 
-      // Add temporary loading message for assistant
       const loadingMessage: Message = {
          id: Date.now() + 1,
          text: '...',
@@ -56,7 +54,6 @@ const ChatPage = () => {
    
    return (
       <div className="flex flex-col h-screen max-w-2xl mx-auto p-6 bg-gray-50">
-        {/* Message Feed */}
         <div className="flex-1 overflow-y-auto mb-6 space-y-4 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent">
           {messages.map((message) => (
             <div
@@ -95,8 +92,6 @@ const ChatPage = () => {
             </div>
           ))}
         </div>
-    
-        {/* Input Field */}
         <div className="flex gap-3 bg-white p-4 rounded-xl shadow-sm">
           <input 
             type="text"
